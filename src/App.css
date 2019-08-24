@@ -23,6 +23,27 @@
   color: #61dafb;
 }
 
+.select {
+  width: 12em;
+  height: 2.5em;
+  line-height: 3;
+  background: #edffff;
+  overflow: hidden;
+  border-radius: 0.25em;
+  margin: 0 6px;
+}
+
+fieldset {
+  border-radius: 10px;
+  margin: 20px;
+  padding: 15px;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid #9a9a9a 1px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
