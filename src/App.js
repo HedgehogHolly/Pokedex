@@ -45,7 +45,10 @@ function App() {
           <legend>Filters or something</legend>
           <label>
             Region:
-            <select onChange={event => setRegion(event.target.value)}>
+            <select
+              className="select"
+              onChange={event => setRegion(event.target.value)}
+            >
               <option value="">All</option>
               {availableRegions.map(region => (
                 <option value={region}>{region}</option>
@@ -54,7 +57,10 @@ function App() {
           </label>
           <label>
             Type:
-            <select onChange={event => setType(event.target.value)}>
+            <select
+              className="select"
+              onChange={event => setType(event.target.value)}
+            >
               <option value="">All</option>
               {availableTypes.map(type => (
                 <option value={type}>{upperFirst(type)}</option>
