@@ -16,6 +16,17 @@ const PokemonWrapper = styled.section`
 function App() {
   const [region, setRegion] = React.useState();
   const [type, setType] = React.useState();
+  const [data, setData] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setData(data.results);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
   const availableRegions = uniq(pokemons.map(pokemon => pokemon.region));
 
@@ -69,6 +80,9 @@ function App() {
           </label>
         </fieldset>
         <div>
+          {data.map(pokemon => (
+            <div> {pokemon.name} </div>
+          ))}
           <PokemonWrapper>
             {pokemons
               .filter(filterByRegion)
