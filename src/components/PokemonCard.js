@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Type from "./Type";
+import { Link } from "@reach/router";
 
 const Wrapper = styled.section`
   border: solid #808080 1px;
@@ -34,11 +35,11 @@ const Image = styled.img`
 
 function PokemonCard(props) {
   return (
-    <div>
+    <Link to={`pokemon/${props.number}`}>
       <Wrapper>
         <Image src={props.image} alt={props.name} />
         <CardHeading>{props.name}</CardHeading>
-        <PokemonNumber>{props.number}</PokemonNumber>
+        <PokemonNumber>#{props.number}</PokemonNumber>
 
         <TypeContainer>
           {props.types.map((type, i) => (
@@ -46,7 +47,7 @@ function PokemonCard(props) {
           ))}
         </TypeContainer>
       </Wrapper>
-    </div>
+    </Link>
   );
 }
 

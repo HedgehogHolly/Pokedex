@@ -2,420 +2,420 @@
   {
     "title": "Bulbasaur",
     "region": "Johto",
-    "index": "#001",
+    "index": 1,
     "image": "1.png",
     "types": ["grass", "poison"]
   },
   {
     "title": "Ivysaur",
     "region": "Hoenn",
-    "index": "#002",
+    "index": 2,
     "image": "2.png",
     "types": ["grass", "poison"]
   },
   {
     "title": "Venusaur",
     "region": "Kanto",
-    "index": "#003",
+    "index": 3,
     "image": "3.png",
     "types": ["grass", "poison"]
   },
   {
     "title": "Charmander",
     "region": "Kanto",
-    "index": "#004",
+    "index": 4,
     "image": "4.png",
     "types": ["fire"]
   },
   {
     "title": "Charmeleon",
     "region": "Kanto",
-    "index": "#005",
+    "index": 5,
     "image": "5.png",
     "types": ["fire"]
   },
   {
     "title": "Charizard",
     "region": "Kanto",
-    "index": "#006",
+    "index": 6,
     "image": "6.png",
     "types": ["fire", "flying"]
   },
   {
     "title": "Squirtle",
     "region": "Kanto",
-    "index": "#007",
+    "index": 7,
     "image": "7.png",
     "types": ["water"]
   },
   {
     "title": "Wartortle",
     "region": "Kanto",
-    "index": "#008",
+    "index": 8,
     "image": "8.png",
     "types": ["water"]
   },
   {
     "title": "Blastoise",
     "region": "Kanto",
-    "index": "#009",
+    "index": 9,
     "image": "9.png",
     "types": ["water"]
   },
   {
     "title": "Caterpie",
     "region": "Kanto",
-    "index": "#010",
+    "index": 10,
     "image": "10.png",
     "types": ["bug"]
   },
   {
     "title": "Metapod",
     "region": "Kanto",
-    "index": "#011",
+    "index": 11,
     "image": "11.png",
     "types": ["bug"]
   },
   {
     "title": "Butterfree",
     "region": "Kanto",
-    "index": "#012",
+    "index": 12,
     "image": "12.png",
     "types": ["bug", "flying"]
   },
   {
     "title": "Weedle",
     "region": "Kanto",
-    "index": "#013",
+    "index": 13,
     "image": "13.png",
     "types": ["bug", "flying"]
   },
   {
     "title": "Kakuna",
     "region": "Kanto",
-    "index": "#014",
+    "index": 14,
     "image": "14.png",
     "types": ["bug", "flying"]
   },
   {
     "title": "Beedrill",
     "region": "Kanto",
-    "index": "#015",
+    "index": 15,
     "image": "15.png",
     "types": ["bug", "flying"]
   },
   {
     "title": "Pidgey",
     "region": "Kanto",
-    "index": "#016",
+    "index": 16,
     "image": "16.png",
     "types": ["normal", "flying"]
   },
   {
     "title": "Pidgeotto",
     "region": "Kanto",
-    "index": "#017",
+    "index": 17,
     "image": "17.png",
     "types": ["normal", "flying"]
   },
   {
     "title": "Pidgeot",
     "region": "Kanto",
-    "index": "#018",
+    "index": 18,
     "image": "18.png",
     "types": ["normal", "flying"]
   },
   {
     "title": "Rattata",
     "region": "Kanto",
-    "index": "#019",
+    "index": 19,
     "image": "19.png",
     "types": ["normal"]
   },
   {
     "title": "Raticate",
     "region": "Kanto",
-    "index": "#020",
+    "index": 20,
     "image": "20.png",
     "types": ["normal"]
   },
   {
     "title": "Spearow",
     "region": "Kanto",
-    "index": "#021",
+    "index": 21,
     "image": "21.png",
     "types": ["normal"]
   },
   {
     "title": "Fearow",
     "region": "Kanto",
-    "index": "#022",
+    "index": 22,
     "image": "22.png",
     "types": ["normal", "flying"]
   },
   {
     "title": "Ekans",
     "region": "Kanto",
-    "index": "#023",
+    "index": 23,
     "image": "23.png",
     "types": ["poison"]
   },
   {
     "title": "Arbok",
     "region": "Kanto",
-    "index": "#024",
+    "index": 24,
     "image": "24.png",
     "types": ["poison"]
   },
   {
     "title": "Pikachu",
     "region": "Kanto",
-    "index": "#025",
+    "index": 25,
     "image": "25.png",
     "types": ["electric"]
   },
   {
     "title": "Raichu",
     "region": "Kanto",
-    "index": "#026",
+    "index": 26,
     "image": "26.png",
     "types": ["electric"]
   },
   {
     "title": "Sandshrew",
     "region": "Kanto",
-    "index": "#027",
+    "index": 27,
     "image": "27.png",
     "types": ["ground"]
   },
   {
     "title": "Sandslash",
     "region": "Kanto",
-    "index": "#028",
+    "index": 28,
     "image": "28.png",
     "types": ["ground"]
   },
   {
     "title": "Nidoran♀",
     "region": "Kanto",
-    "index": "#029",
+    "index": 29,
     "image": "29.png",
     "types": ["poison"]
   },
   {
     "title": "Nidorina",
     "region": "Kanto",
-    "index": "#030",
+    "index": 30,
     "image": "30.png",
     "types": ["poison"]
   },
   {
     "title": "Nidoqueen",
     "region": "Kanto",
-    "index": "#031",
+    "index": 31,
     "image": "31.png",
     "types": ["poison", "ground"]
   },
   {
     "title": "Nidoran♂",
     "region": "Kanto",
-    "index": "#032",
+    "index": 32,
     "image": "32.png",
     "types": ["poison"]
   },
   {
     "title": "Nidorino",
     "region": "Kanto",
-    "index": "#033",
+    "index": 33,
     "image": "33.png",
     "types": ["poison"]
   },
   {
     "title": "Nidoking",
     "region": "Kanto",
-    "index": "#034",
+    "index": 34,
     "image": "34.png",
     "types": ["poison", "ground"]
   },
   {
     "title": "Clefairy",
     "region": "Kanto",
-    "index": "#035",
+    "index": 35,
     "image": "35.png",
     "types": ["fairy"]
   },
   {
     "title": "Clefable",
     "region": "Kanto",
-    "index": "#036",
+    "index": 36,
     "image": "36.png",
     "types": ["fairy"]
   },
   {
     "title": "Vulpix",
     "region": "Kanto",
-    "index": "#037",
+    "index": 37,
     "image": "37.png",
     "types": ["fire"]
   },
   {
     "title": "Ninetales",
     "region": "Kanto",
-    "index": "#038",
+    "index": 38,
     "image": "38.png",
     "types": ["fire"]
   },
   {
     "title": "Jigglypuff",
     "region": "Kanto",
-    "index": "#039",
+    "index": 39,
     "image": "39.png",
     "types": ["normal", "fairy"]
   },
   {
     "title": "Wigglytuff",
     "region": "Kanto",
-    "index": "#040",
+    "index": 40,
     "image": "40.png",
     "types": ["normal", "fairy"]
   },
   {
     "title": "Zubat",
     "region": "Kanto",
-    "index": "#041",
+    "index": 41,
     "image": "41.png",
     "types": ["poison", "flying"]
   },
   {
     "title": "Golbat",
     "region": "Kanto",
-    "index": "#042",
+    "index": 42,
     "image": "42.png",
     "types": ["poison", "flying"]
   },
   {
     "title": "Oddish",
     "region": "Kanto",
-    "index": "#043",
+    "index": 43,
     "image": "43.png",
     "types": ["grass", "poison"]
   },
   {
     "title": "Gloom",
     "region": "Kanto",
-    "index": "#044",
+    "index": 44,
     "image": "44.png",
     "types": ["grass", "poison"]
   },
   {
     "title": "Vileplume",
     "region": "Kanto",
-    "index": "#045",
+    "index": 45,
     "image": "45.png",
     "types": ["grass", "poison"]
   },
   {
     "title": "Paras",
     "region": "Kanto",
-    "index": "#046",
+    "index": 46,
     "image": "46.png",
     "types": ["bug", "grass"]
   },
   {
     "title": "Parasect",
     "region": "Kanto",
-    "index": "#047",
+    "index": 47,
     "image": "47.png",
     "types": ["bug", "grass"]
   },
   {
     "title": "Venonat",
     "region": "Kanto",
-    "index": "#048",
+    "index": 48,
     "image": "48.png",
     "types": ["bug", "poison"]
   },
   {
     "title": "Venomoth",
     "region": "Kanto",
-    "index": "#049",
+    "index": 49,
     "image": "49.png",
     "types": ["bug", "poison"]
   },
   {
     "title": "Diglett",
     "region": "Kanto",
-    "index": "#050",
+    "index": 50,
     "image": "50.png",
     "types": ["ground"]
   },
   {
     "title": "Dugtrio",
     "region": "Kanto",
-    "index": "#051",
+    "index": 51,
     "image": "51.png",
     "types": ["ground"]
   },
   {
     "title": "Meowth",
     "region": "Kanto",
-    "index": "#052",
+    "index": 52,
     "image": "52.png",
     "types": ["normal"]
   },
   {
     "title": "Persian",
     "region": "Kanto",
-    "index": "#053",
+    "index": 53,
     "image": "53.png",
     "types": ["normal"]
   },
   {
     "title": "Psyduck",
     "region": "Kanto",
-    "index": "#054",
+    "index": 54,
     "image": "54.png",
     "types": ["water"]
   },
   {
     "title": "Golduck",
     "region": "Kanto",
-    "index": "#055",
+    "index": 55,
     "image": "55.png",
     "types": ["water"]
   },
   {
     "title": "Mankey",
     "region": "Kanto",
-    "index": "#056",
+    "index": 56,
     "image": "56.png",
     "types": ["fighting"]
   },
   {
     "title": "Primeape",
     "region": "Kanto",
-    "index": "#057",
+    "index": 57,
     "image": "57.png",
     "types": ["fighting"]
   },
   {
     "title": "Growlithe",
     "region": "Kanto",
-    "index": "#058",
+    "index": 58,
     "image": "58.png",
     "types": ["fire"]
   },
   {
     "title": "Arcanine",
     "region": "Kanto",
-    "index": "#059",
+    "index": 59,
     "image": "59.png",
     "types": ["fire"]
   },
   {
     "title": "Poliwag",
     "region": "Kanto",
-    "index": "#060",
+    "index": 60,
     "image": "60.png",
     "types": ["water"]
   }
