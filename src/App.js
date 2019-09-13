@@ -1,11 +1,17 @@
 import React from "react";
-import "./App.css";
-import PokemonCard from "./components/PokemonCard";
-import pokemons from "./pokemon.json";
 import styled from "styled-components";
 import uniq from "lodash/uniq";
 import flatten from "lodash/flatten";
 import upperFirst from "lodash/upperFirst";
+import { Pokedex } from "pokeapi-js-wrapper";
+
+import "./App.css";
+import PokemonCard from "./components/PokemonCard";
+import pokemons from "./pokemon.json";
+
+const P = new Pokedex({
+  cache: true
+});
 
 const PokemonWrapper = styled.section`
   display: flex;
@@ -16,17 +22,44 @@ const PokemonWrapper = styled.section`
 function App() {
   const [region, setRegion] = React.useState();
   const [type, setType] = React.useState();
-  const [data, setData] = React.useState([]);
 
-  React.useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setData(data.results);
-      })
-      .catch(err => console.log(err));
-  }, []);
+  // const [regions, setRegions] = React.useState([]);
+  // const [pokemon, setPokemon] = React.useState([]);
+
+  // [
+  //   {
+  //     name: "piplup",
+  //     region: "Matt's house"
+  //   }
+  // ]
+
+  // React.useEffect(() => {
+  //   P.getPokemonsList().then(data => {
+  //     setPokemon(pokemon.results);
+  //   });
+  // }, []);
+
+  // React.useEffect(() => {
+  //   P.getRegionsList().then(data => {
+  //     setRegions(data.results);
+  //   });
+  // }, [pokemon]);
+
+  // React.useState(() => {
+  //   regions.forEach(region => {
+  //     P.resource(region.url).then(data => {
+  //       const pokedexes = data.pokedexes;
+
+  //       pokedexes.forEach(pokedex => {
+  //         P.resource(pokedex.url).then(data => {
+  //           const pokemonEntries = data.pokemon_entries.map(entry => entry.pokemon_species.name);
+
+  //           const nextPokemon =
+  //         })
+  //       })
+  //     });
+  //   })
+  // }, [regions])
 
   const availableRegions = uniq(pokemons.map(pokemon => pokemon.region));
 
@@ -80,9 +113,9 @@ function App() {
           </label>
         </fieldset>
         <div>
-          {data.map(pokemon => (
-            <div> {pokemon.name} </div>
-          ))}
+          {/*pokemon.map(({ name }) => (
+            <div>{name}</div>
+          ))*/}
           <PokemonWrapper>
             {pokemons
               .filter(filterByRegion)
