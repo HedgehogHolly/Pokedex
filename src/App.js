@@ -3,6 +3,7 @@ import styled from "styled-components";
 import uniq from "lodash/uniq";
 import flatten from "lodash/flatten";
 import upperFirst from "lodash/upperFirst";
+import extend from "lodash/extend";
 import { Pokedex } from "pokeapi-js-wrapper";
 
 import "./App.css";
@@ -20,46 +21,65 @@ const PokemonWrapper = styled.section`
 `;
 
 function App() {
-  const [region, setRegion] = React.useState();
   const [type, setType] = React.useState();
 
-  // const [regions, setRegions] = React.useState([]);
-  // const [pokemon, setPokemon] = React.useState([]);
+  // [{
+  //   name,
+  //   region
+  // }]
+  const [pokemon, setPokemon] = React.useState([]);
 
-  // [
-  //   {
-  //     name: "piplup",
-  //     region: "Matt's house"
-  //   }
-  // ]
+  // [region]
+  const [regions, setRegions] = React.useState([]);
 
-  // React.useEffect(() => {
-  //   P.getPokemonsList().then(data => {
-  //     setPokemon(pokemon.results);
-  //   });
-  // }, []);
+  // Todo: remove this and use `regions` + `setRegions`
+  const [region, setRegion] = React.useState();
 
-  // React.useEffect(() => {
-  //   P.getRegionsList().then(data => {
-  //     setRegions(data.results);
-  //   });
-  // }, [pokemon]);
+  React.useEffect(() => {
+    // fetch /pokemon
+    P.getPokemonsList().then(data => {
+      setPokemon(data.results.map(pokemon => ({
+        name: pokemon.name,
+      })));
+    });
 
-  // React.useState(() => {
-  //   regions.forEach(region => {
-  //     P.resource(region.url).then(data => {
-  //       const pokedexes = data.pokedexes;
+    // fetch /region
+    P.getRegionsList().then(data => {
+      setRegions(data.results.map(region => region.name));
+    });
+  }, []);
 
-  //       pokedexes.forEach(pokedex => {
-  //         P.resource(pokedex.url).then(data => {
-  //           const pokemonEntries = data.pokemon_entries.map(entry => entry.pokemon_species.name);
+  // implementation not perfect. ideally we'd have a dependency on `pokemon`, whilst avoiding recursion.
+  React.useEffect(() => {
+    async function fetchData() {
+      let nextPokemon = [...pokemon];
 
-  //           const nextPokemon =
-  //         })
-  //       })
-  //     });
-  //   })
-  // }, [regions])
+      await Promise.all(regions.map(async (region) => {
+        // fetch /region/[name]
+        const pokedexes = (await P.getRegionByName(region)).pokedexes.map(pokedex => pokedex.name);
+
+        await Promise.all(pokedexes.map(async pokedex => {
+          // fetch /pokedex/[id]
+          const pokedexByName = await P.getPokedexByName(pokedex);
+          const pokemonInRegion = pokedexByName.pokemon_entries.map(entry => entry.pokemon_species.name);
+
+          const filtered = nextPokemon.filter(({ name }) => pokemonInRegion.includes(name))
+          const mapped = filtered.map(pokemon => ({
+            ...pokemon,
+            region,
+          }));
+
+          extend(nextPokemon, mapped);
+        }));
+      }));
+
+      setPokemon(nextPokemon);
+    }
+
+    fetchData();
+  }, [regions]);
+
+  console.log('pokemon', pokemon);
 
   const availableRegions = uniq(pokemons.map(pokemon => pokemon.region));
 
@@ -95,7 +115,7 @@ function App() {
             >
               <option value="">All</option>
               {availableRegions.map(region => (
-                <option value={region}>{region}</option>
+                <option key={region} value={region}>{region}</option>
               ))}
             </select>
           </label>
@@ -107,7 +127,7 @@ function App() {
             >
               <option value="">All</option>
               {availableTypes.map(type => (
-                <option value={type}>{upperFirst(type)}</option>
+                <option key={type} value={type}>{upperFirst(type)}</option>
               ))}
             </select>
           </label>
