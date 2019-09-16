@@ -3,7 +3,7 @@ import styled from "styled-components";
 import uniq from "lodash/uniq";
 import flatten from "lodash/flatten";
 import upperFirst from "lodash/upperFirst";
-import extend from "lodash/extend";
+import find from "lodash/find";
 import { Pokedex } from "pokeapi-js-wrapper";
 
 import "./App.css";
@@ -29,55 +29,43 @@ function App() {
   // }]
   const [pokemon, setPokemon] = React.useState([]);
 
-  // [region]
-  const [regions, setRegions] = React.useState([]);
-
-  // Todo: remove this and use `regions` + `setRegions`
+  // Todo: set regions from P.getRegionsList()
   const [region, setRegion] = React.useState();
 
   React.useEffect(() => {
-    // fetch /pokemon
-    P.getPokemonsList().then(data => {
-      setPokemon(data.results.map(pokemon => ({
-        name: pokemon.name,
-      })));
-    });
-
-    // fetch /region
-    P.getRegionsList().then(data => {
-      setRegions(data.results.map(region => region.name));
-    });
-  }, []);
-
-  // implementation not perfect. ideally we'd have a dependency on `pokemon`, whilst avoiding recursion.
-  React.useEffect(() => {
     async function fetchData() {
-      let nextPokemon = [...pokemon];
+      // fetch /pokemon
+      const pokemonData = (await P.getPokemonsList()).results.map(result => ({
+        name: result.name,
+      }));
 
-      await Promise.all(regions.map(async (region) => {
+      // fetch /region
+      const regionData = (await P.getRegionsList()).results.map(region => region.name);
+
+      await Promise.all(regionData.map(async (region) => {
         // fetch /region/[name]
-        const pokedexes = (await P.getRegionByName(region)).pokedexes.map(pokedex => pokedex.name);
+        const pokedexNames = (await P.getRegionByName(region)).pokedexes.map(pokedex => pokedex.name);
 
-        await Promise.all(pokedexes.map(async pokedex => {
+        await Promise.all(pokedexNames.map(async pokedeName => {
           // fetch /pokedex/[id]
-          const pokedexByName = await P.getPokedexByName(pokedex);
-          const pokemonInRegion = pokedexByName.pokemon_entries.map(entry => entry.pokemon_species.name);
+          const pokedex = await P.getPokedexByName(pokedeName);
+          const pokemonInPokedex = pokedex.pokemon_entries.map(entry => entry.pokemon_species.name);
 
-          const filtered = nextPokemon.filter(({ name }) => pokemonInRegion.includes(name))
-          const mapped = filtered.map(pokemon => ({
-            ...pokemon,
-            region,
-          }));
+          pokemonInPokedex.forEach(name => {
+            const match = find(pokemonData, { name });
 
-          extend(nextPokemon, mapped);
+            if (match) {
+              match.region = region;
+            }
+          });
         }));
       }));
 
-      setPokemon(nextPokemon);
+      setPokemon(pokemonData);
     }
 
     fetchData();
-  }, [regions]);
+  }, []);
 
   console.log('pokemon', pokemon);
 
